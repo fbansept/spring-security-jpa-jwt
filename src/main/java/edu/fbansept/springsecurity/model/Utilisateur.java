@@ -22,7 +22,9 @@ public class Utilisateur {
     private boolean actif;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "role_utilisateur")
+    @JoinTable(name = "role_utilisateur",
+            joinColumns = @JoinColumn(name = "utilisateur_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     Set<Role> listeRole;
 
     public int getId() {
