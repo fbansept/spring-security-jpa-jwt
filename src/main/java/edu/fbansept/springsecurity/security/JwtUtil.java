@@ -31,7 +31,7 @@ public class JwtUtil {
     private Boolean tokenNonDepasseDateExpiration(String token) {
         return extractionDuCorpDuToken(token)
                 .getExpiration()
-                .before(new Date());
+                .after(new Date());
     }
 
     //Retourne un token
